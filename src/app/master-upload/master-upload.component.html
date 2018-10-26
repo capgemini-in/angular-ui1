@@ -1,0 +1,35 @@
+<div id="header">
+  <h1><i class="fa fa-upload">&nbsp;&nbsp;  </i>USER MANAGEMENT
+      <span class="sub-header">MASTER UPLOAD</span>
+  </h1>
+</div>
+<div class="product">
+  <mat-card style="background: transparent;margin-top: 35px">
+  
+    <form class="example-form" [formGroup]="uploadForm" enctype="multipart/form-data">
+      <table class="example-full-width" cellspacing="0">
+        <tr [hidden]="true">
+          
+        </tr>
+
+        <tr>
+         <td>
+         	<label>Select File &nbsp;</label>
+         </td>
+          <td>    
+                <input  type="file"  placeholder="Select File" formControlName="ip_file" (change)="fileSelection($event)" required> 
+              <!--mat-error *ngIf="productID.invalid">{{getErrorMessage()}}</mat-error-->
+            </td>
+        </tr>
+      </table>
+  	  <br/>
+      <table class="example-full-width" cellspacing="2">
+        <tr>
+          <td>
+            <button mat-raised-button color="primary" [disabled]=!uploadForm.valid (click)=onUpload();>Submit</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </mat-card>
+</div>

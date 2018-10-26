@@ -1,0 +1,111 @@
+.basic-container {
+  padding: 0 20 20 0;
+  height :100%;
+
+  .menu-bar {
+    min-height: auto;
+
+    .mat-toolbar-row {
+      height: auto;
+    }
+    
+  }
+  .example-fill-remaining-space {
+    /* This fills the remaining space, by using flexbox. 
+       Every toolbar row uses a flexbox row layout. */
+    flex: 1 1 auto;
+  }
+  
+}
+
+.example-container{
+  height:100%;
+}
+
+
+.version-info {
+  font-size: 8pt;
+  float: right;
+  padding: 8px;
+}
+
+.side-menu-bar{
+  width : 20%;
+  max-width:280px;
+  padding: 10px;
+  box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+  background: #FFF;
+  font-family: "Roboto", "Helvetica", "Arial", "sans-serif";
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    border-radius:4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+
+div.icon-box{
+  border-bottom: 2px solid #00bae9;
+  margin-bottom: 25px;
+}
+
+.icon{
+  width :100%;
+  margin-top: -20px;
+}
+
+.menu-item{
+    display: block;
+    /*background: #007ebb;*/
+    color: #FFF;
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.menu-item button{
+  color: #a9afbb;
+  text-align: left;
+  width: 100%;
+  /* background: #eee; */
+  padding: 5px 30px;
+  font-weight: 500;
+}
+
+.main-content{
+  background : #eeeeee;
+}
+
+.submenu {
+  margin-left:25px
+}
+
+.mat-fab.mat-primary, 
+.mat-flat-button.mat-primary, 
+.mat-mini-fab.mat-primary, 
+.mat-raised-button.mat-primary,
+.button.mat-raised-button.mat-primary{
+      background-color: #007ebb !important;
+      color: #FFFFFF !important;
+}
+
+#header .sub-header{
+    font-size: 12px;
+    margin-left: 20px;
+}
+

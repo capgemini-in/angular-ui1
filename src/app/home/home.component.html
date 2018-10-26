@@ -1,0 +1,202 @@
+  
+  <div class="mobile-nav">
+    <div class="menu-icon">
+        <span class="fa fa-navicon"></span>
+    </div>
+    <div class="icon-box">
+        <img src="../../assets//images/CapgeminiIcon.jpg" class="icon">
+      </div>
+  </div>
+  <div class="basic-container" layout="flex">
+    <!--mat-toolbar class="menu-bar cg-test" -->
+    <mat-drawer-container class="example-container">
+      <mat-drawer mode="side" opened class="side-menu-bar" hide-sm>
+        <div class="icon-box">
+            <img src="../../assets//images/CapgeminiIcon.jpg" class="icon">
+          </div>
+        <span class="example-fill-remaining-space"></span>
+        
+        <!--span *ngFor="let item of data" class="menu-item">
+          <!-- Handle branch node buttons here -->
+          <!--span *ngIf="item.children && item.children.length > 0">
+            <button mat-button >
+              {{item.name}}
+            </button>
+            <app-menu-item #menu [items]="item.children"></app-menu-item>
+          </span-->
+          <!-- Leaf node buttons here -->
+          <!--span *ngIf="!item.children || item.children.length === 0">
+            <button mat-button color="primary" [routerLink]="item.uri">
+              {{item.name}}
+            </button>
+          </span>
+        </span-->
+
+        <span class="menu-item">
+          <!-- Handle branch node buttons here -->
+          <!--span>
+            <button mat-button >
+              <i class='fa fa-home'>&nbsp;</i>Home
+            </button>
+            <app-menu-item #menu [items]="item.children"></app-menu-item>
+          </span-->
+          <!-- Leaf node buttons here -->
+          <span>
+            
+            <button mat-button color="primary" [routerLink]='["."]'>
+              <i class='fa fa-home'>&nbsp;&nbsp;</i>Home
+            </button>
+          
+          </span>
+        </span>
+
+        <span class="menu-item" *ngIf="isAdmin">
+          <span>
+            <button mat-button color="primary" (click)=menuCollapse_toggle(2) >
+              <i class='fa fa-user'>&nbsp;&nbsp;</i>User Manager
+            </button>
+            <div class="submenu" menu_collapse={menu_collapse[2]} *ngIf="menu_collapse[2]">
+              <span class="menu-item">
+                 <span>
+                    <button mat-button color="primary" [routerLink]="['user']">
+                    <i class='fa fa-user-circle-o'>&nbsp;&nbsp;</i>User List
+                  </button>
+                </span>
+              </span>
+              <!--span class="menu-item">
+                 <span>
+                    <button mat-button color="primary" [routerLink]="">
+                    <i class='fa fa-tree'>&nbsp;&nbsp;</i>User Hierarchy
+                  </button>
+                </span>
+              </span-->
+              <span class="menu-item">
+                 <span>
+                    <button mat-button color="primary" [routerLink]="['userRole']">
+                    <i class='fa fa-user-secret'>&nbsp;&nbsp;</i>User Roles 
+                  </button>
+                </span>
+              </span>
+              <!--span class="menu-item">
+                 <span>
+                    <button mat-button color="primary" [routerLink]="['role-list']">
+                    <i class='fa fa-user-circle'>&nbsp;&nbsp;</i>Screen Permission
+                  </button>
+                </span>
+              </span-->
+              <span class="menu-item">
+                 <span>
+                    <button mat-button color="primary" [routerLink]="['upload-excel']">
+                    <i class='fa fa-upload'>&nbsp;&nbsp;</i>Upload  Excel
+                  </button>
+                </span>
+              </span>
+            </div>
+          </span>
+        </span>
+
+        <span class="menu-item" *ngIf="isAdmin">
+         <span>
+            <button mat-button color="primary" [routerLink]="" (click)="menuCollapse_toggle(0)" menu_selected={menu_collapse[0]}>
+              <i class='fa fa-diamond'>&nbsp;&nbsp;</i>Master Manager
+            </button>
+            <div class="submenu" menu_collapse={menu_collapse[0]} *ngIf="menu_collapse[0]">
+              <span class="menu-item">
+                 <span>
+                    <button mat-button color="primary" [routerLink]="['product-list']">
+                    <i class='fa fa-diamond'>&nbsp;&nbsp;</i>Product Manager
+                  </button>
+                </span>
+              </span>
+              <!--span class="menu-item">
+                 <span>
+                    <button mat-button color="primary" [routerLink]="">
+                    <i class='fa fa-diamond'>&nbsp;&nbsp;</i>Customer Manager
+                  </button>
+                </span>
+              </span-->
+            </div>
+          </span>
+        </span>
+        <span class="menu-item" *ngIf="isAdmin">
+         <span>
+            <button mat-button color="primary" [routerLink]="" (click)="menuCollapse_toggle(3)" menu_selected={menu_collapse[3]}>
+              <i class='fa fa-cog'>&nbsp;&nbsp;</i>Configuration
+            </button>
+            <div class="submenu" menu_collapse={menu_collapse[3]} *ngIf="menu_collapse[3]">
+              <span class="menu-item">
+                 <span>
+                    <button mat-button color="primary" [routerLink]="['sms']">
+                    <i class='fa fa-envelope'>&nbsp;&nbsp;</i>SMS Notification
+                  </button>
+                </span>
+              </span>
+              <span class="menu-item">
+                 <span>
+                    <button mat-button color="primary" [routerLink]="['email']">
+                    <i class='fa fa-envelope'>&nbsp;&nbsp;</i>Email Gateway
+                  </button>
+                </span>
+              </span>
+            </div>
+          </span>
+        </span>
+        <span class="menu-item">
+          <span>
+            <button mat-button color="primary" [routerLink]="" (click)="menuCollapse_toggle(1)" menu_selected={menu_collapse[1]}>
+              <i class='fa fa-search'>&nbsp;&nbsp;</i>Search Application
+            </button>
+            <!--div class="submenu" menu_collapse={menu_collapse[1]} *ngIf="menu_collapse[1]">
+              <span class="menu-item">
+                 <span>
+                    <button mat-button color="primary" [routerLink]="">
+                    <i class='fa fa-diamond'>&nbsp;&nbsp;</i>Product Manager
+                  </button>
+                </span>
+              </span>
+              <span class="menu-item">
+                 <span>
+                    <button mat-button color="primary" [routerLink]="">
+                    <i class='fa fa-diamond'>&nbsp;&nbsp;</i>Customer Manager
+                  </button>
+                </span>
+              </span>
+            </div-->
+          </span>
+        </span>
+
+        <span class="menu-item">
+          <span>
+            <button mat-button color="primary" [routerLink]="">
+              <i class='fa fa-info-circle'>&nbsp;&nbsp;</i>About
+            </button>
+          </span>
+        </span>
+
+        <span class="example-fill-remaining-space"></span>
+        
+        <!--span style="float:right">
+            <button (click)="logout()" mat-raised-button color="primary">Log out</button>
+        </span-->
+
+        <span class="menu-item">
+          <span>
+             <button (click)="logout()" mat-raised-button color="primary">
+             <i class='fa fa-sign-out'>&nbsp;</i>Log out
+           </button>
+          </span>
+        </span>
+      </mat-drawer>
+    
+    <!--/mat-toolbar-->
+    <!--    <br> -->
+   <!-- <mat-toolbar>
+      
+   </mat-toolbar> -->
+   <mat-drawer-content class="main-content">
+     <router-outlet>
+          
+     </router-outlet>
+ </mat-drawer-content>
+ </mat-drawer-container>
+  </div>

@@ -1,0 +1,94 @@
+<div id="header">
+  <h1><i class="fa fa-user">&nbsp;&nbsp;  </i>USER MANAGER
+      <span class="sub-header">UPDATE</span>
+  </h1>
+</div>
+<div class="user">
+  <mat-card style="background: transparent;margin-top: 35px">
+  
+    <form class="example-form" [formGroup]="userForm">
+      <table class="example-full-width" cellspacing="0">
+        <!--tr [hidden]="true">
+            <mat-form-field>
+                <input matInput formControlName="userProfiles">
+              </mat-form-field>
+        </tr-->
+
+        <tr>
+            <td>
+              <mat-form-field>
+                <input matInput placeholder="First Name" formControlName="firstName">
+              </mat-form-field>
+            </td>
+            <!--td>
+                <mat-form-field>
+                  <input matInput placeholder="Middle Name" formControlName="MiddleName">
+                </mat-form-field>
+              </td-->
+            <td class="td-space"></td>
+            <td>
+                <mat-form-field>
+                  <input matInput  placeholder="Last Name" formControlName="lastName">
+                </mat-form-field>
+            </td>
+          </tr>
+          
+          <tr>
+            <td>
+                <mat-form-field>
+                    <input matInput  placeholder="Login Name" formControlName="ssoId" disabled="true">
+                  </mat-form-field>
+            </td>
+            <td></td>
+            <td> 
+                <mat-form-field>
+                    <input matInput  placeholder="Email Id" formControlName="email">
+                  </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td> 
+                <mat-form-field>
+                    <input matInput type="password"  placeholder="Passsword" formControlName="password">
+                  </mat-form-field>
+            </td>
+            <td></td>
+            <td> 
+                
+                  <!--mat-select placeholder="Select Role" formControlName="userProfiles">
+                    <mat-option *ngFor="let role of roles" [value]="role.id">
+                      {{role.type}}
+                    </mat-option>
+                  </mat-select-->
+                  <label>Role</label><br/><br/>
+                  <ng-container formArrayName="userProfiles">
+                    <div *ngFor="let role of roles; let i = index" >
+                       <mat-checkbox class="example-margin" [formControlName]="i" [value]="role.id" intermediate=true>
+                         {{role.type}}
+                       </mat-checkbox>
+                    </div>
+                 </ng-container>
+
+
+                  <!--mat-checkbox placeholder="Select Role" *ngFor="let role of roles" [value]="role.id" formControlName="userProfiles" >  
+                      {{role.type}}
+                  </mat-checkbox-->
+                
+            </td>
+          
+      </table>
+
+      <table class="example-full-width" cellspacing="2">
+        <tr>
+          <td>
+            <button mat-raised-button color="primary" [disabled]=!userForm.valid (click)=onSubmit(userForm.value);>Submit</button>
+          </td>
+        </tr>
+  
+      </table>
+      <div [hidden]="true">
+        Check Availability of the user id
+      </div>
+    </form>
+  </mat-card>
+</div>

@@ -1,0 +1,56 @@
+<div id="header">
+  <h1><i class="fa fa-user">&nbsp;&nbsp;  </i>ROLE MANAGER
+      <span class="sub-header">Add</span>
+  </h1>
+</div>
+<div class="user">
+  <mat-card style="background: transparent;margin-top: 35px">
+  
+    <form class="example-form" [formGroup]="roleForm">
+      <table class="example-full-width" cellspacing="0">
+        <!--tr>
+          <td></td>
+          <td><h3 style="color: darkblue">User Creation</h3></td>
+          <td></td>
+        </tr-->
+        <tr>
+          <td>
+            <mat-form-field>
+              <input matInput placeholder="Role Name" formControlName="RoleName" required>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field>
+              <input matInput placeholder="Description" formControlName="Desc">
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr style="display: none">
+          <td>
+               <label>Access: </label> 
+               <div style="padding:10px 0">
+                  <mat-checkbox formControlName="Access" value=1>User Manager</mat-checkbox>
+                  &nbsp;&nbsp;
+                  <mat-checkbox formControlName="Access">Role Manager</mat-checkbox>
+               </div>
+            </td>
+        </tr>
+        
+       </table>
+       <div>&nbsp;</div>
+      <table class="example-full-width" cellspacing="2">
+        <tr>
+          <td>
+            <button mat-raised-button color="primary" [disabled]="!roleForm.valid"  (click)=onSubmit(roleForm.value);>Submit</button>
+          </td>
+        </tr>
+  
+      </table>
+      <div [hidden]="true">
+        Check Availability of the user id
+      </div>
+    </form>
+  </mat-card>
+</div>

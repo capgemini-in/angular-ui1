@@ -1,0 +1,46 @@
+<div id="header">
+  <h1><i class="fa fa-user">&nbsp;&nbsp;  </i>CONFIGURATIONS
+      <span class="sub-header">SMS NOTIFICATION</span>
+  </h1>
+</div>
+<div class="sms">
+  <mat-card style="background: transparent;margin-top: 35px">
+  
+    <form class="example-form" [formGroup]="smsForm">
+      <table class="example-full-width" cellspacing="0">
+        <tr [hidden]="true">
+          
+        </tr>
+
+        <tr>
+          <td>
+              <mat-form-field>
+                <input  matInput placeholder="Mobile Number" formControlName="to" required maxlength="10"> 
+              </mat-form-field>
+              <!--mat-error *ngIf="productID.invalid">{{getErrorMessage()}}</mat-error-->
+            </td>
+            <!--td>
+                <mat-form-field>
+                  <input matInput placeholder="Middle Name" formControlName="MiddleName">
+                </mat-form-field>
+              </td-->
+        </tr>
+        <tr>    
+            <td>
+                <mat-form-field>
+                  <textarea rows="3" matInput  placeholder="Message" formControlName="message"></textarea> 
+                </mat-form-field> 
+            </td>
+          </tr>
+      </table>
+
+      <table class="example-full-width" cellspacing="2">
+        <tr>
+          <td>
+            <button mat-raised-button color="primary" [disabled]=!smsForm.valid (click)=onSubmit(smsForm.value);>Submit</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </mat-card>
+</div>

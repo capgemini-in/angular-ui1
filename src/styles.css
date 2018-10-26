@@ -1,0 +1,117 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import "~ngx-toastr/toastr.css";
+
+body, html{
+	height:100%;
+	margin: 0;
+	    font-family: "Roboto", "Helvetica", "Arial", "sans-serif";
+}
+
+div#header{
+	padding: 30px 30px 9px;
+    text-transform: uppercase;
+}
+
+div#header h1{
+	margin: 0;
+	font-size: 18px;
+	color: rgba(0,0,0,.54);	
+}
+
+div#header .sub-header{
+    font-size: 12px;
+    margin-left: 20px;
+}
+
+.form-holder{
+	border-top: 1px solid #007ebb;
+}
+
+.mat-fab.mat-primary, 
+.mat-flat-button.mat-primary, 
+.mat-mini-fab.mat-primary, 
+.mat-raised-button.mat-primary,
+.button.mat-raised-button.mat-primary{
+      background-color: #007ebb !important;
+      color: #FFFFFF !important;
+}
+
+.td-space{
+	width: 20%;
+}
+
+.mat-card:not([class*=mat-elevation-z]) {
+    /*box-shadow: 0 3px 1px -2px rgb(0, 126, 187), 0 2px 2px 0 rgb(188, 220, 235), 0 1px 5px 0 rgb(188, 220, 235) !important;
+    */
+}
+
+
+.mobile-nav{
+  display: none;
+}
+
+/* tablet css */
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .side-menu-bar{
+    width :250px;
+    max-width: 250px;
+  }
+}
+
+/* mobile css */
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+   .side-menu-bar{
+   			display: none!important;
+   }
+
+   div#header{
+   	 padding: 15px 15px 10px;
+   }
+
+   .user, .productList, .product{
+		  padding: 0 5px !important;
+		  margin: 45px 0 0 0!important;
+   }
+
+   .mat-form-field-infix{
+   			width:100% !important;
+   }
+
+   .td-space{
+   		width: 4px;
+   }
+
+   .mobile-nav{
+      display: block ;
+      padding: 2px 5px 0px 5px !important;
+      border-bottom: 1px solid  #00bae9 !important;
+   }
+
+   div.icon-box[_ngcontent-c1]{
+      display: inline-block;
+      width: 70%;
+      margin-bottom: 0 !important;
+      border-bottom: none !important;
+   }
+
+   .icon[_ngcontent-c1] {
+      width: 40% !important;
+      margin-top: 0 !important;
+    }
+
+    .menu-icon{
+      display: inline-block;
+      width: 31px;
+      vertical-align: middle;
+      /* height: 9px; */
+      margin-top: -32px;
+      font-size: 24px;
+      padding: 0 10px 0 0;
+    }
+
+    .menu-icon span{
+      cursor: pointer;
+    }
+}

@@ -1,0 +1,83 @@
+<div id="header">
+  <h1><i class="fa fa-user">&nbsp;&nbsp;  </i>PRODUCT MANAGER
+      <span class="sub-header">EDIT</span>
+  </h1>
+</div>
+<div class="product">
+  <mat-card style="background: transparent;margin-top: 35px">
+  
+    <form class="example-form" [formGroup]="productForm">
+      <table class="example-full-width" cellspacing="0">
+        <tr [hidden]="true">
+          
+        </tr>
+
+        <tr>
+          <td>
+              <mat-form-field>
+                <input  matInput placeholder="Product id" formControlName="prodId" required maxlength="4"> 
+              </mat-form-field>
+              <!--mat-error *ngIf="productID.invalid">{{getErrorMessage()}}</mat-error-->
+            </td>
+            <td class="td-space"></td>
+            <td>
+              <mat-form-field>
+                <input  matInput placeholder="Product Name" formControlName="name" required>
+              </mat-form-field>
+            </td>
+            <!--td>
+                <mat-form-field>
+                  <input matInput placeholder="Middle Name" formControlName="MiddleName">
+                </mat-form-field>
+              </td-->
+        </tr>
+        <tr>    
+            <td>
+                <mat-form-field>
+                  <input matInput  placeholder="Description" formControlName="description" >
+                </mat-form-field>
+                
+            </td>
+            <td class="td-space"></td>
+            <td>
+                <mat-form-field>
+                    <input matInput  placeholder="Price" formControlName="price" disabled="true" required>
+                </mat-form-field>
+
+            </td>
+          </tr>
+          <tr>
+            
+            <td> 
+                <mat-form-field>
+                    <input matInput  placeholder="Quantity" formControlName="quantity" required>
+                </mat-form-field>
+            </td>
+            <td class="td-space"></td>
+          
+              <td>
+                  <mat-form-field>
+                    <mat-select placeholder="Category" fonrmControlName="prodCategory" [ngModelOptions]="{standalone: true}"  [(ngModel)]="prodCategory">
+                      <mat-option *ngFor="let ctg of categories" [value]="ctg.value">
+                        {{ctg.name}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+              </td>
+          </tr>
+      </table>
+
+      <table class="example-full-width" cellspacing="2">
+        <tr>
+          <td>
+            <button mat-raised-button color="primary" [disabled]=!productForm.valid (click)=onSubmit(productForm.value);>Submit</button>
+          </td>
+        </tr>
+  
+      </table>
+      <div [hidden]="true">
+        Check Availability of the user id
+      </div>
+    </form>
+  </mat-card>
+</div>

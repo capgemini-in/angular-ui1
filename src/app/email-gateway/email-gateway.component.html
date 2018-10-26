@@ -1,0 +1,65 @@
+<div id="header">
+  <h1><i class="fa fa-user">&nbsp;&nbsp;  </i>CONFIGURATIONS
+      <span class="sub-header">EMAIL GATEWAY</span>
+  </h1>
+</div>
+<div class="sms">
+  <mat-card style="background: transparent;margin-top: 35px">
+  
+    <form class="example-form" [formGroup]="emailForm">
+      <table class="example-full-width" cellspacing="0">
+        <tr [hidden]="true">
+          
+        </tr>
+
+        <tr>
+          <td>
+              <mat-form-field>
+                <input  matInput placeholder="From Email Id" formControlName="fromEmail" required> 
+              </mat-form-field>
+              <!--mat-error *ngIf="productID.invalid">{{getErrorMessage()}}</mat-error-->
+            </td>
+            <td class="td-space"></td>
+            <td>
+              <mat-form-field>
+                <input  matInput placeholder="To Email Id" formControlName="toEmail" required> 
+              </mat-form-field>
+              <!--mat-error *ngIf="productID.invalid">{{getErrorMessage()}}</mat-error-->
+            </td>
+        </tr>
+         <tr>
+          <td>
+              <mat-form-field>
+                <input  matInput placeholder="CC Email Id" formControlName="ccEmail" required> 
+              </mat-form-field>
+              <!--mat-error *ngIf="productID.invalid">{{getErrorMessage()}}</mat-error-->
+            </td>
+        </tr>
+
+         <tr>
+          <td>
+              <mat-form-field>
+                <input  matInput placeholder="Subject" formControlName="subject" required maxlength="250"> 
+              </mat-form-field>
+              <!--mat-error *ngIf="productID.invalid">{{getErrorMessage()}}</mat-error-->
+            </td>
+        </tr>
+        <tr>    
+            <td style="width:100%">
+                <mat-form-field style="width:100%">
+                  <textarea rows="3" matInput  placeholder="Your Message" formControlName="content"></textarea> 
+                </mat-form-field> 
+            </td>
+          </tr>
+      </table>
+
+      <table class="example-full-width" cellspacing="2">
+        <tr>
+          <td>
+            <button mat-raised-button color="primary" [disabled]=!emailForm.valid (click)=onSubmit(emailForm.value);>Submit</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </mat-card>
+</div>

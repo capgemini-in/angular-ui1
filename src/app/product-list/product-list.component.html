@@ -1,0 +1,75 @@
+<div id="header">
+  <h1><i class="fa fa-user">&nbsp;&nbsp;  </i>PRODUCT LIST</h1>
+</div>
+
+<div class="productList">
+      <div [hidden]="true">
+     <form class="example-form" id="addtocart_form" target="_blank" action="https://www.paypal.com/cgi-bin/webscr" method="post" #atcForm1>
+              <input type="text" placeholder="cmd" name="cmd" value="_cart" />
+              <input type="text" id="business" name="business" value="kin@sss.com">
+              <input type="text" name="add" value=1>
+              <input type="text" id="item_name" name="item_name" value="">
+              <input type="text" id="currency_code" name="currency_code" value="INR">
+              <input type="text" id="amount" name="amount" value="">
+            
+     </form>
+   </div>
+
+
+  <mat-card style="background: transparent;padding:0;box-shadow: none;margin-bottom: 35px;">
+  <mat-form-field style="margin-bottom: 35px">
+    <input matInput (keyup)="applyFilter($event.target.value)"  placeholder="Keyword">
+  </mat-form-field>
+
+  <button style="float:right" mat-raised-button class="button blue-button" color="primary"  (click)="OnAddProduct()">Add Product</button>
+  <!-- <label>User List</label> -->
+  <div class="mat-elevation-z8" style="border: 1px solid white">
+    <table mat-table [dataSource]="dataSource"  class="mat-elevation-z8"  matSort>
+
+    <!--- Note that these columns can be defined in any order.
+    The actual rendered columns are set as a property on the row definition" -->
+      <!-- Position Column -->
+    
+      <!-- Name Column -->
+      <ng-container matColumnDef="prodID">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Product Id </th>
+        <td mat-cell *matCellDef="let element"> {{element.prodId}} </td>
+      </ng-container>
+      <ng-container matColumnDef="prodName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+      <ng-container matColumnDef="desc">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+      </ng-container>
+      <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Category</th>
+        <td mat-cell *matCellDef="let element"> {{element.prodCategory.type}} </td>
+      </ng-container>
+      <!-- Action column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef >Actions</th>
+        <td mat-cell *matCellDef="let element">
+          <div>
+            <button style="background: yellow;color: #333;border: 1px solid yellow;border-radius: 4px;font-size: 12px;padding: 4px;height: auto;box-shadow: #818175 0px 1px 1px 2px;cursor:pointer" onclick=scriptClick(this) id={{element|json}}>
+              ADD TO CART
+            </button>&nbsp;
+            <button mat-raised-button class="button" color=""  (click)="OnEditProduct(element)" title="Edit">
+              <i class='fa fa-edit'>&nbsp;</i>
+            </button>&nbsp;
+            <button mat-raised-button class="button" color=""  (click)="OnDeleteProduct(element)" title="Delete">
+              <i class='fa fa-trash'>&nbsp;</i>
+            </button>
+          </div>
+        </td>
+      </ng-container>
+      
+      
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"  ></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]"  showFirstLastButtons></mat-paginator>
+  </div>
+</mat-card>
+</div>
